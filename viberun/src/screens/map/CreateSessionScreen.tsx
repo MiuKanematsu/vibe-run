@@ -17,7 +17,7 @@ export default function CreateSessionScreen() {
   const [title, setTitle] = useState('');
   const [locationName, setLocationName] = useState('');
   const [startTime, setStartTime] = useState(new Date());
-  const [pace, setPace] = useState(PACE_OPTIONS[2]);
+  const [pace, setPace] = useState<string>(PACE_OPTIONS[2]);
   const [cafeDestination, setCafeDestination] = useState('');
   const [loading, setLoading] = useState(false);
 
