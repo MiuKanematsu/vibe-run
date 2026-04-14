@@ -1,0 +1,95 @@
+{
+  "name": "viberun",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-native-community/datetimepicker": "8.4.4",
+    "@react-navigation/bottom-tabs": "^7.15.9",
+    "@react-navigation/native": "^7.2.2",
+    "@react-navigation/native-stack": "^7.14.11",
+    "@shopify/react-native-skia": "^2.6.2",
+    "expo": "~54.0.33",
+    "expo-apple-authentication": "~8.0.8",
+    "expo-auth-session": "~7.0.10",
+    "expo-camera": "~17.0.10",
+    "expo-crypto": "~15.0.8",
+    "expo-image-picker": "~17.0.10",
+    "expo-location": "~19.0.8",
+    "expo-status-bar": "~3.0.9",
+    "firebase": "^12.12.0",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-maps": "1.20.1",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^13.3.3",
+    "@types/jest": "^30.0.0",
+    "@types/react": "~19.1.0",
+    "babel-jest": "^30.3.0",
+    "jest": "^30.3.0",
+    "jest-expo": "^55.0.16",
+    "react-test-renderer": "^19.1.0",
+    "ts-jest": "^29.4.9",
+    "typescript": "~5.9.2"
+  },
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "setupFilesAfterFramework": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|firebase|@firebase)"
+    ],
+    "projects": [
+      {
+        "displayName": "react-native",
+        "preset": "jest-expo/ios",
+        "testMatch": [
+          "**/__tests__/hooks/**/*.test.ts",
+          "**/__tests__/hooks/**/*.test.tsx"
+        ],
+        "transformIgnorePatterns": [
+          "/node_modules/(?!(.pnpm|react-native|@react-native|@react-native-community|expo|@expo|@expo-google-fonts|react-navigation|@react-navigation|@sentry/react-native|native-base))",
+          "/node_modules/react-native-reanimated/plugin/"
+        ],
+        "moduleNameMapper": {
+          "^expo/src/winter$": "<rootDir>/__mocks__/expo-winter.js",
+          "^expo/src/winter/(.*)$": "<rootDir>/__mocks__/expo-winter.js",
+          "^expo/virtual/streams$": "<rootDir>/__mocks__/expo-winter.js",
+          "^expo-modules-core/src/polyfill/dangerous-internal$": "<rootDir>/__mocks__/expo-winter.js"
+        }
+      },
+      {
+        "displayName": "node",
+        "testEnvironment": "node",
+        "testMatch": [
+          "**/__tests__/firebase/**/*.test.ts"
+        ],
+        "transform": {
+          "^.+\\.tsx?$": [
+            "ts-jest",
+            {
+              "tsconfig": {
+                "allowJs": true
+              }
+            }
+          ]
+        },
+        "transformIgnorePatterns": [
+          "node_modules/(?!(firebase|@firebase)/)"
+        ],
+        "moduleNameMapper": {}
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "VibeRun",
+    "slug": "viberun",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.viberun.app",
+      "config": {
+        "googleMapsApiKey": "YOUR_GOOGLE_MAPS_IOS_API_KEY"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "ランセッションの場所を表示するために位置情報を使用します。",
+        "NSLocationAlwaysUsageDescription": "ランセッション中に位置情報を追跡するために使用します。",
+        "NSCameraUsageDescription": "ランの写真を撮影するためにカメラを使用します。",
+        "NSPhotoLibraryUsageDescription": "ランの写真を選択するためにフォトライブラリを使用します。"
+      },
+      "usesAppleSignIn": true
+    },
+    "plugins": [
+      "expo-location",
+      "expo-camera",
+      "expo-image-picker",
+      "expo-apple-authentication",
+      [
+        "react-native-maps",
+        {
+          "googleMapsApiKey": "YOUR_GOOGLE_MAPS_IOS_API_KEY"
+        }
+      ]
+    ]
+  }
+}
