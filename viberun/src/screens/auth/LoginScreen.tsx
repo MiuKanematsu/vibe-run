@@ -11,19 +11,20 @@ export default function LoginScreen() {
   async function handleAppleSignIn() {
     try {
       setLoading(true);
-      const nonce = await Crypto.digestStringAsync(
+      const rawNonce = Math.random().toString(36).substring(2);
+      const hashedNonce = await Crypto.digestStringAsync(
         Crypto.CryptoDigestAlgorithm.SHA256,
-        Math.random().toString()
+        rawNonce
       );
       const credential = await AppleAuthentication.signInAsync({
         requestedScopes: [
           AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
           AppleAuthentication.AppleAuthenticationScope.EMAIL,
         ],
-        nonce,
+        nonce: hashedNonce,
       });
       if (credential.identityToken) {
-        await signInWithApple(credential.identityToken, nonce);
+        await signInWithApple(credential.identityToken, rawNonce);
       }
     } catch (e: any) {
       if (e.code !== 'ERR_REQUEST_CANCELED') {
